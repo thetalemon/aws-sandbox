@@ -44,7 +44,7 @@ jobs:
           npm install chai
           npm install mocha
           sam build --beta-features -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/w
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/work//aws-sandbox/aws-sandbox/aws-sandbox/samconfig.toml
       - if: steps.main_step.outcome =='success'
         name: Slack Notification on Success
         uses: rtCamp/action-slack-notify@v2
