@@ -33,21 +33,18 @@ jobs:
           SLACK_COLOR: good
       - name: generate tag
         run: |
-           echo "tag-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
-           git tag $(cat TAG_NAME)
-           git push origin $(cat TAG_NAME)
+          echo "tag-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
+          git tag $(cat TAG_NAME)
+          git push origin $(cat TAG_NAME)
       - name: test and build and deploy
         id: main_step
         run: |
-           cd /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world
-           npm init -y
-           npm install chai
-           npm install mocha
-          #  npm run test /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world/tests/unit/test-handler.js
-           sam build -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
-           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/w
-     
-     
+          cd /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world
+          npm init -y
+          npm install chai
+          npm install mocha
+          sam build -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/w
       - if: steps.main_step.outcome =='success'
         name: Slack Notification on Success
         uses: rtCamp/action-slack-notify@v2
