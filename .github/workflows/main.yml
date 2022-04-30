@@ -36,6 +36,12 @@ jobs:
           echo "tag-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
           git tag $(cat TAG_NAME)
           git push origin $(cat TAG_NAME)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
       - name: test and build and deploy
         id: main_step
         run: |
