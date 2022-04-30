@@ -43,7 +43,7 @@ jobs:
           npm init -y
           npm install chai
           npm install mocha
-          sam build -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
+          sam build --beta-features -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/w
       - if: steps.main_step.outcome =='success'
         name: Slack Notification on Success
