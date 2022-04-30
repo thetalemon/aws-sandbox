@@ -12,7 +12,7 @@ on:
 env:
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
   SLACK_USERNAME: デプロイ通知
-  SLACK_ICON: https://github.com/thetalemon/aws-sandbox/blob/main/aws-sandbox/P1002614.JPG?raw=true
+  SLACK_ICON: https://user-images.githubusercontent.com/47911711/166111995-6fcebd47-0ac3-4bf4-bff0-f9584897081e.JPG
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,7 +39,7 @@ jobs:
       - name: test and build and deploy
         id: main_step
         run: |
-           cd /home/runner/work/githubactions_lambda/githubactions_lambda/githubaction_deploy/hello-world
+           cd /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world
            npm init -y
            npm install chai
            npm install mocha
