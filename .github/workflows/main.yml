@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 env:
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-  SLACK_USERNAME: namae
+  SLACK_USERNAME: デプロイ通知
   SLACK_ICON: https://github.com/thetalemon/aws-sandbox/blob/main/aws-sandbox/P1002614.JPG?raw=true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -43,8 +43,8 @@ jobs:
            npm init -y
            npm install chai
            npm install mocha
-           npm run test /home/runner/work/githubactions_lambda/githubactions_lambda/githubaction_deploy/hello-world/tests/unit/test-handler.js
-           sam build -t /home/runner/work/githubactions_lambda/githubactions_lambda/githubaction_deploy/template.yaml
+           npm run test /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world/tests/unit/test-handler.js
+           sam build -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
            sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/w
      
      
