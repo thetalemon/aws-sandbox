@@ -43,7 +43,7 @@ jobs:
            npm init -y
            npm install chai
            npm install mocha
-           npm run test /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world/tests/unit/test-handler.js
+          #  npm run test /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/hello-world/tests/unit/test-handler.js
            sam build -t /home/runner/work/aws-sandbox/aws-sandbox/aws-sandbox/template.yaml
            sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file /home/runner/w
      
