@@ -1,9 +1,19 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
+const url = "/api/user"
+
 const Home: NextPage = () => {
+  const [stars, setStars] = useState([]);
+  useEffect(() => {
+    fetch(url)
+      .then((r) => r.json())
+      .then((j) => setStars(j.messages[1].text));
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,6 +24,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
+          {stars}
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
